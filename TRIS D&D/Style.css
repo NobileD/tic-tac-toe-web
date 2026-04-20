@@ -1,0 +1,186 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #1f7a3f; /* verde */
+  color: #000;
+}
+
+.app {
+  width: min(920px, 96vw);
+  background: #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+/* SCORE */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.score {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.score.x { color: #dc2626; }
+.score.o { color: #2563eb; }
+
+/* TOP BAR */
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.status, .timer {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  margin: 0;
+  text-align: center;
+}
+
+.timer { min-width: 160px; }
+
+.restart {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.restart:hover { background: #f3f4f6; }
+.restart:active { transform: scale(0.99); }
+
+/* LAYOUT: X | BOARD | O */
+.game {
+  display: grid;
+  grid-template-columns: 170px 1fr 170px;
+  gap: 14px;
+  align-items: center;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.label { font-weight: 800; }
+
+/* PEDINE */
+.piece {
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: 900;
+  user-select: none;
+  cursor: grab;
+}
+
+.piece:active { cursor: grabbing; }
+.piece.disabled { opacity: 0.35; cursor: not-allowed; }
+
+.piece.x { color: #dc2626; } /* rosso */
+.piece.o { color: #2563eb; } /* blu  */
+
+/* BOARD reticolo nero */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background: #000;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+/* Celle bianche */
+.cell {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border: 2px solid #000;
+  font-size: 48px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.cell.played { opacity: 0.98; }
+.cell.x { color: #dc2626; }
+.cell.o { color: #2563eb; }
+
+.cell.drop-ok {
+  outline: 3px dashed #16a34a;
+  outline-offset: -6px;
+}
+
+.cell.winner {
+  background: #a7f3d0;
+  border-color: #065f46;
+}
+
+.hint {
+  margin: 12px 0 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* OVERLAY GIF */
+.gif-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 999;
+}
+
+.gif-overlay img {
+  max-width: 80vw;
+  max-height: 70vh;
+  border-radius: 12px;
+  border: 2px solid #fff;
+}
+
+.gif-caption {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.hidden { display: none; }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partita Mortale di Tris</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <h1>Partita Mortale di Tris</h1>
+
+    <!-- SCORE -->
+    <div class="scoreboard">
+      <div class="score x">X vince: <strong id="scoreX">0</strong></div>
+      <div class="score o">O vince: <strong id="scoreO">0</strong></div>
+    </div>
+
+    <!-- STATUS / TIMER / RESTART -->
+    <div class="topbar">
+      <p id="status" class="status" aria-live="polite">
+        Turno: <strong id="turn">X</strong>
+      </p>
+
+      <p class="timer" aria-live="polite">
+        Tempo turno: <strong id="timer">02:00</strong>
+      </p>
+
+      <button id="restartBtn" class="restart" type="button">
+        Riavvia partita
+      </button>
+    </div>
+
+    <!-- LAYOUT: X | BOARD | O -->
+    <div class="game">
+      <aside class="side">
+        <div class="label">Giocatore X</div>
+        <div id="pieceX" class="piece x" draggable="true" data-player="X" title="Trascina la X">X</div>
+      </aside>
+
+      <section class="board" id="board" aria-label="Griglia del Tris">
+        <button class="cell" data-index="0" aria-label="Cella 1"></button>
+        <button class="cell" data-index="1" aria-label="Cella 2"></button>
+        <button class="cell" data-index="2" aria-label="Cella 3"></button>
+        <button class="cell" data-index="3" aria-label="Cella 4"></button>
+        <button class="cell" data-index="4" aria-label="Cella 5"></button>
+        <button class="cell" data-index="5" aria-label="Cella 6"></button>
+        <button class="cell" data-index="6" aria-label="Cella 7"></button>
+        <button class="cell" data-index="7" aria-label="Cella 8"></button>
+        <button class="cell" data-index="8" aria-label="Cella 9"></button>
+      </section>
+
+      <aside class="side">
+        <div class="label">Giocatore O</div>
+        <div id="pieceO" class="piece o" draggable="true" data-player="O" title="Trascina la O">O</div>
+      </aside>
+    </div>
+
+    <p class="hint">
+      2 minuti per turno. Se il tempo scade, perde il giocatore di turno.
+    </p>
+
+    <!-- OVERLAY GIF VINCITORE -->
+    <div id="gifOverlay" class="gif-overlay hidden" aria-hidden="true">
+      <img id="gifImage" src="" alt="Vincitore" />
+      <div class="gif-caption">WINNER 🛡️</div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
