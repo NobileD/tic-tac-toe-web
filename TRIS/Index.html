@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partita Mortale di Tris</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <h1>Partita Mortale di Tris</h1>
+
+    <!-- SCORE -->
+    <div class="scoreboard">
+      <div class="score x">X vince: <strong id="scoreX">0</strong></div>
+      <div class="score o">O vince: <strong id="scoreO">0</strong></div>
+    </div>
+
+    <div class="topbar">
+      <p id="status" class="status">
+        Turno: <strong id="turn">X</strong>
+      </p>
+
+      <p class="timer">
+        Tempo turno: <strong id="timer">02:00</strong>
+      </p>
+
+      <button id="restartBtn" class="restart">
+        Riavvia partita
+      </button>
+    </div>
+
+    <section class="board" id="board">
+      <button class="cell" data-index="0"></button>
+      <button class="cell" data-index="1"></button>
+      <button class="cell" data-index="2"></button>
+      <button class="cell" data-index="3"></button>
+      <button class="cell" data-index="4"></button>
+      <button class="cell" data-index="5"></button>
+      <button class="cell" data-index="6"></button>
+      <button class="cell" data-index="7"></button>
+      <button class="cell" data-index="8"></button>
+    </section>
+
+    <p class="hint">
+      2 minuti per turno. Se il tempo scade, perde il giocatore di turno.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
